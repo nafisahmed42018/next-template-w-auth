@@ -65,7 +65,6 @@ export const LoginForm = () => {
         })
         .catch(() => setError('Something went wrong '))
     })
-    console.log(values)
   }
   const toggleShowPassword = () => {
     setShowPassword((value) => !value)

@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { auth } from '@/auth'
 import { SessionProvider } from 'next-auth/react'
+import ClientOnly from '@/components/client-only'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,13 +19,15 @@ export default async function RootLayout({
 }>) {
   const session = await auth()
   return (
-    <SessionProvider session={session}>
+    <SessionProvider session={session} refetchOnWindowFocus>
       <html lang="en">
         <body className={inter.className}>
-          {' '}
-          <div className="h-full flex items-center justify-center bg-primaryGradient from-sky-500 to-blue-800">
-            {children}
-          </div>
+          <ClientOnly>
+            {' '}
+            <div className="h-full flex items-center justify-center bg-primaryGradient from-sky-500 to-blue-800">
+              {children}
+            </div>
+          </ClientOnly>
         </body>
       </html>
     </SessionProvider>
