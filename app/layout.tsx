@@ -4,6 +4,7 @@ import './globals.css'
 import { auth } from '@/auth'
 import { SessionProvider } from 'next-auth/react'
 import ClientOnly from '@/components/client-only'
+import { Toaster } from '@/components/ui/sonner'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -25,6 +26,7 @@ export default async function RootLayout({
           <ClientOnly>
             {' '}
             <div className="h-full flex items-center justify-center bg-primaryGradient from-sky-500 to-blue-800">
+              <Toaster />
               {children}
             </div>
           </ClientOnly>
