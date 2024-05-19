@@ -64,3 +64,8 @@ body,
     @apply bg-background text-foreground;
   }
 }
+.non-downloadable-image {
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: none;
+}

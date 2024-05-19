@@ -5,6 +5,7 @@ import { auth } from '@/auth'
 import { SessionProvider } from 'next-auth/react'
 import ClientOnly from '@/components/client-only'
 import { Toaster } from '@/components/ui/sonner'
+import getSession from '@/lib/get-session'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,9 +19,9 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const session = await auth()
+  const session = await getSession()
   return (
-    <SessionProvider session={session} refetchOnWindowFocus>
+    <SessionProvider session={session}>
       <html lang="en">
         <body className={inter.className}>
           <ClientOnly>
