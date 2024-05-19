@@ -7,6 +7,7 @@ import authConfig from './auth.config'
 import { getUserById } from './data/user'
 import { UserRole } from '@prisma/client'
 import { getTwoFactorConfirmationByUserId } from './data/two-factor-confirmation'
+import { getAccountByUserId } from './data/account'
 
 export const {
   handlers: { GET, POST },
@@ -60,6 +61,7 @@ export const {
       }
       if (session.user) {
         session.user.isTwoFactorEnabled = token.isTwoFactorEnabled as boolean
+        session.user.isOAuth = token.isOAuth as boolean
       }
       // console.log(session)
 
@@ -71,7 +73,8 @@ export const {
       const existingUser = await getUserById(token.sub)
 
       if (!existingUser) return token
-
+      const existingAccount = await getAccountByUserId(existingUser.id)
+      token.isOAuth = !!existingAccount
       token.role = existingUser.role
       token.isTwoFactorEnabled = existingUser.isTwoFactorEnabled
       token.isProfileCreated = existingUser.isProfileCreated
