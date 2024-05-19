@@ -20,7 +20,7 @@ export default function Home() {
         </h1>
         <p className="text-white text-lg">Authentication Template</p>
         <div>
-          <LoginButton>
+          <LoginButton mode="modal" asChild>
             <Button variant="secondary" size="lg">
               Sign in
             </Button>
