@@ -21,9 +21,9 @@ export default async function RootLayout({
 }>) {
   const session = await getSession()
   return (
-    <SessionProvider session={session}>
-      <html lang="en">
-        <body className={inter.className}>
+    <html lang="en">
+      <body className={inter.className}>
+        <SessionProvider session={session}>
           <ClientOnly>
             {' '}
             <div className="h-full flex items-center justify-center bg-primaryGradient from-sky-500 to-blue-800">
@@ -31,8 +31,8 @@ export default async function RootLayout({
               {children}
             </div>
           </ClientOnly>
-        </body>
-      </html>
-    </SessionProvider>
+        </SessionProvider>
+      </body>
+    </html>
   )
 }

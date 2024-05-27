@@ -8,7 +8,7 @@ const font = Poppins({ subsets: ['latin'], weight: ['600'] })
 
 export default function Home() {
   return (
-    <main className="flex h-full flex-col items-center justify-center bg-primaryGradient from-sky-500 to-blue-900">
+    <main className="flex h-full flex-col items-center justify-center">
       <div className="space-y-6 text-center">
         <h1
           className={cn(

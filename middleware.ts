@@ -1,6 +1,4 @@
-import authConfig from './auth.config'
-import NextAuth from 'next-auth'
-
+import { auth } from '@/auth'
 import {
   DEFAULT_LOGIN_REDIRECT,
   PROFILE_SETUP_REDIRECT,
@@ -10,7 +8,6 @@ import {
   setupRoutes,
 } from '@/routes'
 
-const { auth } = NextAuth(authConfig)
 // @ts-ignore
 export default auth((req) => {
   const { nextUrl } = req
