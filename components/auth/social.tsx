@@ -23,7 +23,7 @@ export const Social = () => {
       <Button
         size="lg"
         className="w-full"
-        variant="outline"
+        variant="secondary"
         onClick={() => onClick('google')}
       >
         <FcGoogle className="h-5 w-5" />
