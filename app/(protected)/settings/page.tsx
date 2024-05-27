@@ -34,7 +34,7 @@ import { UserRole } from '@prisma/client'
 import { Switch } from '@/components/ui/switch'
 
 const SettingsPage = () => {
-  const { data: session, update } = useSession()
+  const {  update } = useSession()
   const user = useCurrentUser()
   const [error, setError] = useState<string | undefined>()
   const [success, setSuccess] = useState<string | undefined>()
